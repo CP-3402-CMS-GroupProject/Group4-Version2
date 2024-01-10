@@ -16,10 +16,13 @@ We learn a lot from this theme, like how to modify the site layout by editing th
 
 
 this is the screenshot of header code
-![image](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/d4dab529-bdb1-4879-b91e-2849ac3d6611)
+![Screenshot-header](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/f168da8b-9002-4d54-bdfa-68e82650b311)
+
 
 this is the screenshot of index code
-![image](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/d34cddf5-ba9c-4209-be93-6872c6fc9cb9)
+![Screenshot-index](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/2091e96b-d815-44d6-a18e-1b948e207878)
+
 
 this is the screenshor of footer code
-![image](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/16977c77-6c0d-4568-9f18-5086713240a7)
+![Screenshot-footer](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/15c97a00-baf1-4dda-a74f-2772f35b20f9)
+
