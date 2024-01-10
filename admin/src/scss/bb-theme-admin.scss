@@ -1,0 +1,893 @@
+@charset "UTF-8";
+/*
+ *--------------------------------------------------------------------
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面（外観 » テーマオプション）用スタイルシートです。
+ *--------------------------------------------------------------------
+ */
+#blankblanc-theme-options {
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .column {
+      &-theme-name {
+        a {
+          display: flex;
+          align-items: center;
+          color: #b0b5b6;
+          font-size: 1rem;
+          line-height: 1;
+          text-decoration: none;
+          box-shadow: none;
+          .octicon-mark-github {
+            width: 22px;
+            height: 22px;
+            margin-left: .4em;
+            fill: #b0b5b6;
+          }
+          &:hover {
+            color: #9499a0;
+            .octicon-mark-github {
+              fill: #9499a0;
+            }
+          }
+        }
+      }
+    }
+    .title {
+      display: inline-block;
+      margin-right: 1em;
+      vertical-align: middle;
+    }
+    small {
+      display: inline-block;
+      font-size: .52174em;
+      color: #9499a0;
+    }
+  }
+  @keyframes force-reset {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #force-reset {
+    margin: 10px 0;
+    opacity: 0;
+    animation-name: force-reset;
+    animation-delay: .5s;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    .message {
+      display: block;
+      color: #ff4a4a;
+      font-size: .75rem;
+      line-height: 1.5;
+      margin-bottom: .75em;
+    }
+  }
+}
+
+#bb-config-edit {
+  min-width: 800px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity .5s;
+  &.loaded {
+    opacity: 1;
+  }
+  &.bb-config-edit-box {
+    min-width: initial;
+  }
+  .nav-tab-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+    li {
+      margin: 0;
+    }
+    a {
+      margin-left: 0;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .nav-tab-active {
+      cursor: default;
+    }
+  }
+  .col {
+    &-left {
+      float: left;
+      width: 280px;
+      margin-right: 40px;
+    }
+    &-right {
+      margin-left: 315px;
+      padding-left: 5px;
+      overflow: hidden;
+    }
+  }
+  fieldset {
+    margin: 0;
+    padding: 15px 0;
+    border: 0;
+    overflow: hidden;
+    .label-title {
+      border-left: 0;
+      padding: 0;
+    }
+    &.config-modified {
+      .label-title {
+        color: #ad002b;
+        border-left-color: #ff4a4a;
+      }
+    }
+    &.config-list {
+      max-width: 700px;
+      .list-block {
+        [contenteditable] {
+          white-space: pre-wrap;
+          outline: 1px solid transparent;
+          padding: 15px;
+          background-color: #f5f5f5;
+          border: 1px solid #e0e0e0;
+          box-sizing: border-box;
+          border-radius: 5px;
+          transition: all .2s;
+          &:focus {
+            background-color: #fff;
+            border-color: #a0a0a0;
+          }
+        }
+      }
+      .modified {
+        color: #ff4a4a;
+        font-weight: normal;
+        border-bottom: 1px dashed #ff4a4a;
+        &-key {
+          color: #ad002b;
+          font-weight: normal;
+          background-color: rgba(#ad002b, .1);
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  .sub-field-block {
+    position: relative;
+    top: -7px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity .3s 0s, max-height 0s .3s;
+    &-open {
+      max-height: 100%;
+      opacity: 1;
+      transition: opacity .3s 0s, max-height .3s 0s;
+    }
+    &-inner {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #e3e8e9;
+    }
+    fieldset {
+      padding: 0;
+      & ~ fieldset {
+        margin-top: 12px;
+      }
+    }
+    .col-left {
+      width: 265px;
+    }
+    .col-right {
+      margin-left: 300px;
+    }
+  }
+  .label-title {
+    position: relative;
+    top: 5px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    padding: 3px 6px;
+    border-left: 4px dotted #c0c5c6;
+    em {
+      font-size: .93em;
+      font-weight: normal !important;
+      margin-left: .5em !important;
+    }
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  em {
+    color: #f00;
+    font-style: normal;
+  }
+  input {
+    vertical-align: -2px;
+    margin: 1px;
+    &[type=checkbox] {
+      margin-top: 7px;
+    }
+    &[type=radio] {
+      ~ label {
+        vertical-align: text-bottom;
+      }
+    }
+    &[type=button] {
+      margin: 6px 3px 0 0;
+    }
+    &[type=number] {
+      padding-right: 0;
+    }
+    &.error {
+      border-color: #f00;
+      background-color: #fff6f3;
+    }
+  }
+  textarea {
+    vertical-align: top;
+    width: calc(100% - 2px);
+    height: 6em;
+    margin: 1px;
+    max-height: 12em;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+  .s-text {
+    width: 4em;
+  }
+  .m-text {
+    width: 12em;
+  }
+  .l-text {
+    width: 30em;
+  }
+  .s-num {
+    width: 4.5em;
+  }
+  .note {
+    display: block;
+    clear: both;
+    color: #747980;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  .default {
+    display: block;
+    clear: both;
+    color: #9499a0;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 3px;
+    max-width: 600px;
+  }
+  .input-group {
+    padding-bottom: 3px;
+    overflow: hidden;
+  }
+  .group {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1em;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &-horizontal {
+      input {
+        vertical-align: middle;
+        & + label {
+          vertical-align: -25%;
+        }
+      }
+      & + .default {
+        margin-top: 5px;
+      }
+    }
+    &-block {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  .image-view {
+    width: auto;
+    max-width: 640px;
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 480px;
+    }
+  }
+  .no-image {
+    display: inline-block;
+    color: #b0b5b6;
+    font-size: .83em;
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px 15px;
+    margin: 5px 0;
+    border: 1px dashed #d0d5d6;
+    box-sizing: border-box;
+  }
+  .submit-btn {
+    &-top {
+      padding: 3px 3px 15px;
+    }
+    &-bottom {
+      padding: 5px 3px 3px;
+    }
+    input {
+      &[type=submit] {
+        margin-right: 6px;
+      }
+    }
+    .button-reset {
+      font-size: .93em;
+      color: #aaa;
+      line-height: 1.2;
+      height: auto;
+      padding: 0;
+      margin: 0 0 0 1.5em;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      &:hover {
+        color: #888;
+      }
+    }
+  }
+  .bb-media-upload {
+    .input-group {
+      overflow: visible;
+    }
+    .media-title {
+      display: none;
+    }
+  }
+  .ui-sortable {
+    position: relative;
+    padding: 7px 7px 6px;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    > li {
+      margin-bottom: 1px;
+      background-color: #e0e1e4;
+      overflow: hidden;
+      user-select: none;
+      &.active {
+        background-color: #9499a0;
+        .widgets-name {
+          color: #fff !important;
+        }
+        .sidebar-name {
+          color: #e5e5e5 !important;
+        }
+      }
+      input {
+        &[type=checkbox] {
+          float: left;
+          margin: 10px 0 0 10px;
+        }
+      }
+      label {
+        display: block;
+        padding: 10px;
+        margin-left: 24px;
+        cursor: move;
+        span {
+          cursor: inherit;
+        }
+      }
+    }
+  }
+  #activate-mobile-nav,
+  #activate-mobile-nav-footer {
+    display: block;
+    max-width: 335px;
+    box-sizing: border-box;
+    .widgets-name {
+      color: #909090;
+      margin-right: 5px;
+    }
+    .sidebar-name {
+      display: inline-block;
+      color: #b0b0b0;
+      font-size: .83em;
+    }
+  }
+  .wp-editor-wrap {
+    overflow: hidden;
+  }
+  .homepage-column-layout {
+    .group {
+      display: flex;
+      align-items: center;
+      margin-top: 3px;
+      ul {
+        margin: 0;
+      }
+      input[type=radio] {
+        margin: 0 .5em 0 0;
+      }
+      label {
+        padding: 0;
+      }
+    }
+  }
+  #bb_config_mv_home_content {
+    max-width: calc(100% - 2px);
+  }
+}
+
+// term
+.bb-term-field {
+  &-add {
+    > label {
+      cursor: default;
+      pointer-events: none;
+    }
+    .note {
+      color: #646970;
+      max-width: 100%;
+    }
+  }
+  &-add &-body {
+    width: 95%;
+    margin-top: 3px;
+    padding: 9px 12px;
+    border: 1px solid rgba(#000, .15);
+    background-color: rgba(#fff, .6);
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+  &-edit {
+    th {
+      label {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+    .note {
+      color: #646970;
+      max-width: 100%;
+    }
+  }
+  &-edit &-body {
+    width: 95%;
+    @media (max-width: 782px) {
+      width: 100%;
+    }
+  }
+}
+
+// mainvisual
+.bb-mainvisual-edit {
+  margin-top: 10px;
+  opacity: 0;
+  transition: all .1s;
+  &.loaded {
+    opacity: 1;
+  }
+  &-post {
+    .image-view {
+      width: auto;
+      max-width: 640px;
+      img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 480px;
+        margin: 8px 0;
+      }
+    }
+    .no-image {
+      display: inline-block;
+      color: #b0b5b6;
+      font-size: .83em;
+      line-height: 1.4;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 25px 15px;
+      margin: 8px 0;
+      border: 1px dashed #d0d5d6;
+      box-sizing: border-box;
+    }
+    .bb-media-upload {
+      .input-group {
+        overflow: visible;
+      }
+      .media-title {
+        display: none;
+      }
+    }
+    .note {
+      margin: 8px 0 0 !important;
+    }
+  }
+  &-term {
+    input {
+      vertical-align: -2px;
+      margin: 1px;
+      &[type=button] {
+        margin: 6px 3px 0 0;
+      }
+      &.error {
+        border-color: #f00;
+        background-color: #fff6f3;
+      }
+    }
+    .bb-mainvisual-disable-box {
+      display: flex;
+      align-items: center;
+      margin: 4px 0;
+      label {
+        padding: 0 0 0 .25em;
+      }
+    }
+    .image-view {
+      width: auto;
+      #addtag & {
+        max-width: 100%;
+      }
+      @media (max-width: 782px) {
+        max-width: 100%;
+      }
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 480px;
+        padding-top: 5px;
+      }
+    }
+    .no-image {
+      display: inline-block;
+      color: #b0b5b6;
+      font-size: .83em;
+      line-height: 1.4;
+      text-align: center;
+      width: 100%;
+      padding: 25px 15px;
+      margin: 5px 0;
+      border: 1px dashed #d0d5d6;
+      box-sizing: border-box;
+    }
+    .note {
+      margin: 4px 0 0;
+    }
+  }
+  .note {
+    color: #646970;
+    max-width: 100%;
+  }
+}
+
+// postmeta
+#poststuff {
+  .inline-textarea {
+    p {
+      margin-bottom: .5em;
+    }
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  #bb-config-edit {
+    fieldset {
+      padding: 5px 0;
+      overflow: visible;
+      &:first-of-type {
+        padding-top: 0;
+      }
+      input {
+        &[type=checkbox] {
+          margin: 1px .25em 0 0;
+          vertical-align: middle;
+        }
+      }
+    }
+    .input-group {
+      overflow: visible;
+    }
+  }
+}
+
+.bb-term-layout {
+  overflow: hidden;
+  ul {
+    display: flex;
+    margin: 5px 0;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    margin: 0 12px 0 0;
+  }
+  .box {
+    display: block;
+    padding: 7px 10px;
+    background-color: rgba(#9499a0, .25);
+    border-radius: 5px;
+    z-index: 2;
+  }
+  .dashicons {
+    display: block;
+    color: rgba(#fff, .75);
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+  .title {
+    display: block;
+    color: rgba(#fff, .75);
+    font-size: .83em;
+    margin-top: 4px;
+  }
+  input[type='radio'] {
+    display: none;
+    z-index: 1;
+    &:checked + .box {
+      background-color: rgba(#9499a0, 1);
+      .dashicons,
+      .title {
+        color: #fff;
+      }
+    }
+  }
+}
+
+#bb-term-column {
+  .group {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 8px;
+    input[type=radio] {
+      margin: 0 .5em 0 0;
+    }
+    label {
+      padding: 0;
+    }
+  }
+}
+
+.activate-block {
+  &-header {
+    margin-top: 5px;
+    padding-bottom: 12px;
+    border-bottom: solid 1px #dcdcde;
+    label {
+      font-weight: bold;
+    }
+  }
+  &-body {
+    position: relative;
+    opacity: .3;
+    transition: all .2s;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: -5px;
+      left: -5px;
+      right: -5px;
+      content: '';
+      background-color: rgba(#000, 0);
+    }
+    &.active {
+      opacity: 1;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.bb-toc-block {
+  &-body {
+    .group {
+      margin: 15px 0;
+      &:first-of-type {
+        margin-top: 10px;
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .label-block {
+      display: block;
+      margin-bottom: 2px;
+    }
+    .label-left {
+      margin-right: .4em;
+    }
+    .col {
+      &-item {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: .25em;
+      }
+      [type=checkbox] {
+        margin-right: .05em;
+      }
+    }
+    #bb-toc-position {
+      width: 25%;
+      padding-right: 0;
+    }
+    .note {
+      color: #646970;
+      margin: 5px 0 0;
+    }
+  }
+}
+
+#page_layout_select {
+  .group {
+    margin: 5px 0;
+  }
+  .note {
+    color: #646970;
+    margin: 8px 0 0;
+  }
+}
+
+#bb_table_of_contents {
+  .bb-confirm-changes {
+    > .group {
+      margin: 5px 0 2px;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  #bb-config-edit {
+    width: 100%;
+    min-width: initial;
+      .col {
+      &-left {
+        float: none;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      &-right {
+        width: auto;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    .col-right + .col-left {
+      margin-top: 20px;
+    }
+    fieldset {
+      width: 100%;
+      border-bottom: 1px dotted #d0d5d6;
+      box-sizing: border-box;
+      &.sub-field {
+        width: 100%;
+        margin-top: 0;
+        .col-left {
+          float: none;
+          width: auto;
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+        .col-right {
+          width: auto;
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+      &:last-of-type {
+        border-bottom: 0;
+      }
+    }
+    .sub-field-block {
+      &-inner {
+        display: block;
+        fieldset {
+          border-bottom: 0;
+        }
+      }
+    }
+    .label-title {
+      font-size: 15px;
+      width: auto;
+      margin: 0 0 15px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 12em;
+      max-height: 20em;
+    }
+    .l-text {
+      width: 99.5%;
+      box-sizing: border-box;
+    }
+    .group {
+      margin-bottom: 8px;
+      &-full {
+        display: block;
+        margin-right: 0;
+      }
+    }
+    .input-group {
+      max-width: 400px;
+    }
+    .bb-media-upload {
+      .image-view {
+        width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    .ui-sortable {
+      width: 90%;
+      > li {
+        label {
+          padding: 11px 8px;
+          margin-left: 38px;
+        }
+        input {
+          &[type=checkbox] {
+            float: left;
+            margin: 8px ;
+          }
+        }
+      }
+    }
+    .submit-btn {
+      border-bottom: none;
+    }
+  }
+}
+
+// logo
+#bb-logo-image {
+  .image-view {
+    max-width: 360px;
+    img {
+      max-height: 360px;
+    }
+  }
+}
+
+// copyright
+#bb-config-edit {
+  .copyright {
+    .group {
+      display: block;
+      margin: 3px 0 0;
+      &:first-of-type {
+        margin-top: 0;
+      }
+      label {
+        display: inline-block;
+        width: 4em;
+      }
+    }
+  }
+}

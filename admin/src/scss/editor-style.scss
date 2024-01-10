@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/**
+ * Theme Name: BlankBlanc
+ * Author: Naoki Yamamoto
+ * Description: 管理画面（編集）用スタイルシートです。
+ */
+@use '../../../src/scss/vars';
+@use 'common';
+@use 'classic-editor';
+@use 'block-editor';
+@use '../../../src/scss/common/add-tinymce' as *;
+@include add-tinymce();
