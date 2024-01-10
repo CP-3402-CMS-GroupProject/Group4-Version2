@@ -11,8 +11,9 @@ https://github.com/sapphirus9/blankblanc.git
 We learn a lot from this theme, like how to modify the site layout by editing the code.
 
 ## Here are the views of our version 2 pages.
-![Screenshot 2024-01-11 015823](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/ecdcea6a-0db8-46fa-a1a3-fb21ecb699d6)
-![Screenshot 2024-01-11 015922](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/adc6a0d2-1ff5-4a6e-b60e-3511a0aeef89)
+![Screenshot 2024-01-11 015823](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/f97cf766-1e9e-4381-9067-003384d39811)
+![Screenshot 2024-01-11 015922](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/f59c1b17-1085-42d0-ad45-f0e595d07e9e)
+
 
 this is the screenshot of header code
 ![image](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/d4dab529-bdb1-4879-b91e-2849ac3d6611)
