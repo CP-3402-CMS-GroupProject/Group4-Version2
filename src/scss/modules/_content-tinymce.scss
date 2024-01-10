@@ -1,0 +1,7 @@
+@use '../common/add-tinymce' as tinymce;
+//--------------------------------------------------------------------
+// TinyMCE style
+//--------------------------------------------------------------------
+.main-article .entry-body {
+  @include tinymce.add-tinymce();
+}

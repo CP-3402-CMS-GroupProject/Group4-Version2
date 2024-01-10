@@ -1,0 +1,103 @@
+@use 'config' as *;
+//--------------------------------------------------------------------
+// base
+//--------------------------------------------------------------------
+body {
+  color: var(--bb-gray-1);
+  background-color: var(--bb-white);
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--bb-link-color);
+  &:hover {
+    color: var(--bb-link-color-hover);
+  }
+}
+
+// fixed content width
+#main-screen {
+  position: relative;
+  min-width: calc(var(--bb-width-desktop) + var(--bb-gap-desktop) * 2);
+  @include media-max(lg) {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    min-height: 100%;
+    min-width: var(--bb-min-width-mobile);
+    background-color: var(--bb-gray-7);
+  }
+  @include media-min(lg) { // iPhone notch measures
+    .os-ios.device-mobile & {
+      min-width: calc(var(--bb-width-desktop) + var(--bb-gap-desktop) * 4);
+    }
+  }
+}
+
+#main-container {
+  position: relative;
+}
+
+.wrap {
+  position: relative;
+  width:  calc(var(--bb-width-desktop) + var(--bb-gap-desktop) * 2);
+  padding: 0 var(--bb-gap-desktop);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  @include media-max(lg) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.over-width {
+  .wrap {
+    --bb-width-desktop: #{$over-width};
+  }
+}
+
+.is-mobile {
+  display: none;
+  @include media-max(lg) {
+    display: inherit;
+  }
+}
+
+.is-pc {
+  @include media-max(lg) {
+    display: none;
+  }
+}
+
+.background-image {
+  &-block {
+    position: relative;
+    opacity: 0;
+    transition: opacity .2s;
+    &.show {
+      opacity: 1;
+    }
+  }
+  &-src {
+    display: none !important;
+  }
+  &-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+
+// blankblanc-wp-admin
+#blankblanc-wp-admin {
+  body {
+    background-color: transparent;
+  }
+}

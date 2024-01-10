@@ -1,0 +1,77 @@
+@use 'config' as *;
+//--------------------------------------------------------------------
+// loading screen
+//--------------------------------------------------------------------
+@keyframes loading-symbol {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body.loading-screen-enable {
+  #loading-screen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: var(--bb-white);
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10001;
+    &::before {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--bb-gray-6);
+      border-radius: 50%;
+      box-sizing: border-box;
+      opacity: 1;
+    }
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 36px;
+      height: 36px;
+      border-top: 3px solid var(--bb-gray-4);
+      border-left: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-radius: 50%;
+      box-sizing: border-box;
+      opacity: 1;
+      animation-name: loading-symbol;
+      animation-duration: .8s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+    }
+    html.page-loaded & {
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+      transition: opacity .8s, visibility .8s, z-index .8s, height 0s .8s;
+      &::before {
+        opacity: 0;
+        transition: opacity .4s;
+      }
+      &::after {
+        opacity: 0;
+        animation-iteration-count: 3;
+        transition: opacity .4s;
+      }
+    }
+  }
+}

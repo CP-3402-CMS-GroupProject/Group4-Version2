@@ -1,0 +1,19 @@
+@use 'config' as *;
+//--------------------------------------------------------------------
+// large
+//--------------------------------------------------------------------
+
+@include media-max(lg) {
+  // global footer
+  //--------------------------------------------------------------------
+  #global-footer .copyright {
+    padding-left: var(--bb-gap-mobile);
+    padding-right: var(--bb-gap-mobile);
+  }
+
+  // footer widgets
+  //--------------------------------------------------------------------
+  .footer-widgets > ul {
+    padding: 0 var(--bb-gap-mobile);
+  }
+}

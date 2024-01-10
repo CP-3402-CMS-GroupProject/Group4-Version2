@@ -1,0 +1,32 @@
+@use 'config' as *;
+//--------------------------------------------------------------------
+// error404
+//--------------------------------------------------------------------
+#contents.error404 {
+  > .wrap {
+    padding: 140px 0 140px;
+    @include media-max(lg) {
+      padding: 100px 0 50px;
+    }
+  }
+  .title {
+    color: var(--bb-gray-5);
+    font-size: 4rem;
+    font-family: var(--bb-sans-serif);
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    @include media-max(lg) {
+      font-size: 3.8rem;
+    }
+  }
+  p {
+    font-size: 1.4rem;
+    line-height: 1;
+    text-align: center;
+    margin-top: 10px;
+    @include media-max(lg) {
+      font-size: 1.3rem;
+    }
+  }
+}
