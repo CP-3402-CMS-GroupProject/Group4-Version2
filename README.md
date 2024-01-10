@@ -1,8 +1,14 @@
 # Group4-Version2
 
 ## About the changes
-compare to the last time, we add more style and the frame for the site.
+Compare to the last time, we add more style and the frame for the site.
+
 We had also add the commonent board for user to fill up informations.
+
+We studied and tried to modify the theme from this:
+https://github.com/sapphirus9/blankblanc.git
+
+We learn a lot from this theme, like how to modify the site layout by editing the code.
 
 ## Here are the view of the version 2 pages.
 ![Screenshot 2024-01-11 015823](https://github.com/CP-3402-CMS-GroupProject/Group4-Version2/assets/96897237/ecdcea6a-0db8-46fa-a1a3-fb21ecb699d6)
